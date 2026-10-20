@@ -80,6 +80,7 @@ function reducer(s: DemoState, a: Action): DemoState {
       // a new extraction starts a fresh requirements → shortlist flow
       return {
         ...INITIAL,
+        hydrated: s.hydrated,
         job: s.job,
         step: "requirements",
         extraction: a.extraction,

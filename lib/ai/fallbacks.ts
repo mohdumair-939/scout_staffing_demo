@@ -271,11 +271,12 @@ export function packetTemplate(s: ScoredCandidate, criteria: Criterion[], job: J
     const [ey, em] = (w.end ?? "2026-10").split("-").map(Number);
     return sum + ((ey - sy) * 12 + (em - sm)) / 12;
   }, 0));
-  const highlights = criteria
-    .filter((cr) => cr.mandatory && byId.get(cr.id)?.result === "meets")
-    .map((cr) => `${cr.text}: ${byId.get(cr.id)!.evidence}`)
-    .slice(0, 6);
-  for (const cr of criteria.filter((x) => !x.mandatory && byId.get(x.id)?.result === "meets").slice(0, 3)) highlights.push(`Also: ${cr.text}`);
+  // the requirements table already lists every mandatory item; highlights add context
+  const roles = c.workHistory.filter((w) => usable(w.status) && w.summary && !/outside the field/.test(w.summary)).slice(0, 2);
+  const highlights = [
+    ...roles.map((w) => `${w.title}, ${w.employer}: ${w.summary.replace(/\.$/, "")}`),
+    ...criteria.filter((x) => !x.mandatory && byId.get(x.id)?.result === "meets").map((cr) => `${cr.text}: ${byId.get(cr.id)!.evidence}`),
+  ].slice(0, 6);
   const considerations = criteria
     .filter((cr) => !cr.mandatory && byId.get(cr.id)?.result !== "meets")
     .map((cr) => `${cr.text}: ${byId.get(cr.id)?.result === "fails" ? "not met" : "not yet confirmed"}`)

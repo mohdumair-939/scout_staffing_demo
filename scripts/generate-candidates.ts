@@ -365,7 +365,9 @@ function makeCandidate(ctx: Ctx, a: Arche, opts: { name?: string; cityOverride?:
   // sources & provenance
   const regSource: SourceId = spec.cred?.passiveSource ?? spec.passiveSources[1] ?? "data_provider";
   const passiveMain: SourceId = spec.family === "software" && chance(0.5) ? "oss_portfolio" : "data_provider";
-  const srcIds = a.sources.map((s) => (s === "PASSIVE_REGISTRY" ? regSource : s === "data_provider" ? passiveMain : s)) as SourceId[];
+  const mapped = a.sources.map((s) => (s === "PASSIVE_REGISTRY" ? regSource : s === "data_provider" ? passiveMain : s)) as SourceId[];
+  // software: the "registry" slot is the open-source source, so keep the data provider as the second source
+  const srcIds = [...new Set(mapped.length > 1 && mapped[0] === mapped[1] ? [mapped[0], "data_provider" as SourceId] : mapped)];
   const primary = srcIds.find((s) => s === "data_provider" || s === "oss_portfolio") ?? srcIds[0];
   const factSource: SourceId = isPassive ? primary : srcIds[0];
   const st: FactStatus = isPassive ? "inferred" : "self_reported";

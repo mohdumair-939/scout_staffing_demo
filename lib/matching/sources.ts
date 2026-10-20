@@ -121,12 +121,8 @@ export function planSources(family: Family, criteria: Criterion[]): PlannedSourc
   const assoc = names("association_directory");
   plan.push({
     id: "association_directory",
-    recommended: assoc.length > 0 || family === "legal" || family === "estimating",
-    reason: assoc.length
-      ? `Finds members holding ${assoc.join(", ")} and confirms the credential is current.`
-      : family === "legal" || family === "estimating"
-        ? "Professional association members are often strong passive candidates."
-        : "No association credential relevant to this role.",
+    recommended: assoc.length > 0,
+    reason: assoc.length ? `Finds members holding ${assoc.join(", ")} and confirms the credential is current.` : "No association credential in the requirements for this role.",
   });
   plan.push({
     id: "data_provider",

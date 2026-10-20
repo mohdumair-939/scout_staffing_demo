@@ -262,7 +262,7 @@ export function RequirementsStep() {
   const canApprove = criteria.length > 0 && criteria.every((c) => c.text.trim()) && (hasDraftChanges || !latest);
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
       {/* JD preview */}
       <Card className="self-start lg:sticky lg:top-[150px]">
         <CardHeader
@@ -315,7 +315,7 @@ export function RequirementsStep() {
           )}
 
           <div className="divide-y divide-line">
-            <div className="grid grid-cols-[170px_minmax(0,1fr)_80px_118px_56px] gap-2 bg-slate-50 px-5 py-2 text-xs font-medium uppercase tracking-wide text-muted">
+            <div className="grid grid-cols-[150px_minmax(0,1fr)_72px_112px_40px] gap-2 bg-slate-50 px-5 py-2 text-xs font-medium uppercase tracking-wide text-muted">
               <span>Category</span>
               <span>Criterion</span>
               <span>Value</span>
@@ -329,7 +329,7 @@ export function RequirementsStep() {
                   if (el) rowRefs.current.set(c.id, el);
                 }}
                 onMouseEnter={() => focus(c.id)}
-                className={clsx("grid grid-cols-[170px_minmax(0,1fr)_80px_118px_56px] items-center gap-2 px-5 py-2", activeId === c.id && "bg-accent-soft/60")}
+                className={clsx("grid grid-cols-[150px_minmax(0,1fr)_72px_112px_40px] items-center gap-2 px-5 py-2", activeId === c.id && "bg-accent-soft/60")}
               >
                 <select className={clsx(inputClass, "px-2 py-1.5 text-xs")} value={c.category} onChange={(e) => update(c.id, { category: e.target.value as CriterionCategory })}>
                   {Object.entries(CATEGORY_LABEL).map(([k, v]) => (
