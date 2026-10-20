@@ -1,14 +1,14 @@
 "use client";
 
 import clsx from "clsx";
-import { ArrowRight, Ban, CheckCheck, Filter, Users } from "lucide-react";
+import { ArrowRight, Ban, CheckCheck, Filter } from "lucide-react";
 import { useMemo, useState } from "react";
 import { rank, type SortKey } from "@/lib/matching/pipeline";
 import { useDemo } from "@/lib/state";
 import { useScored } from "@/lib/useScored";
 import { CandidateDrawer } from "../CandidateDrawer";
 import { ChecklistIcons, DuplicateBadge, FitScore, HELP, HelpIcon, MovabilityChip, PoolBadge, ReadinessChip, sourceShort } from "../scores";
-import { Badge, Button, Card, CardHeader, inputClass, Spinner } from "../ui";
+import { Badge, Button, Card, inputClass, Spinner, StepBanner } from "../ui";
 
 type Tab = "all" | "active" | "passive";
 
@@ -21,6 +21,7 @@ export function CandidatesStep() {
   const [minFit, setMinFit] = useState(0);
   const [sort, setSort] = useState<SortKey>("fit");
   const [hideRejected, setHideRejected] = useState(false);
+  const [showChecklist, setShowChecklist] = useState(false);
   const [openId, setOpenId] = useState<string | null>(null);
   const criteria = approvedCriteria ?? [];
 
@@ -61,12 +62,24 @@ export function CandidatesStep() {
 
   return (
     <div className="space-y-5">
+      <StepBanner
+        step={4}
+        title="Who matches?"
+        right={
+          <Button onClick={() => dispatch({ type: "goto", step: "shortlist" })} disabled={!counts.accepted}>
+            Shortlist ({counts.accepted}) <ArrowRight size={15} />
+          </Button>
+        }
+      >
+        Everyone found, ranked best first. Each person gets three separate scores: <strong>Fit</strong> (do they meet the checklist?), <strong>Likely to move?</strong> (would they
+        consider a new job?) and <strong>Readiness</strong> (can we submit them now?). <strong>Click a name</strong> to verify their licence and accept them.
+      </StepBanner>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-6">
         {[
           { label: "Candidates found", value: counts.all },
           { label: "Active", value: counts.active, tone: "text-emerald-700" },
           { label: "Passive", value: counts.passive, tone: "text-violet-700" },
-          { label: "Pass all mandatory", value: counts.passAll },
+          { label: "Meet all must-haves", value: counts.passAll },
           { label: "Ready to submit", value: counts.ready, tone: "text-emerald-700" },
           { label: "Accepted", value: counts.accepted, tone: "text-accent" },
         ].map((k) => (
@@ -78,16 +91,6 @@ export function CandidatesStep() {
       </div>
 
       <Card>
-        <CardHeader
-          title="4. Candidates: matching and ranking"
-          subtitle="Ranked by fit, then readiness, then movability. Three separate scores, never blended. Click a candidate for details."
-          icon={<Users size={18} />}
-          right={
-            <Button onClick={() => dispatch({ type: "goto", step: "shortlist" })} disabled={!counts.accepted}>
-              Shortlist ({counts.accepted}) <ArrowRight size={15} />
-            </Button>
-          }
-        />
         <div className="flex flex-wrap items-center gap-3 border-b border-line px-5 py-3">
           <div className="flex rounded-lg border border-line p-0.5" role="tablist">
             {(["all", "active", "passive"] as Tab[]).map((t) => (
@@ -105,7 +108,7 @@ export function CandidatesStep() {
           <Filter size={15} className="text-muted" />
           <label className="flex items-center gap-2 text-sm">
             <input type="checkbox" className="h-4 w-4 accent-[var(--color-accent)]" checked={passAll} onChange={(e) => setPassAll(e.target.checked)} />
-            Passes all mandatory
+            Meets all must-haves
           </label>
           <label className="flex items-center gap-2 text-sm">
             Radius
@@ -120,7 +123,7 @@ export function CandidatesStep() {
           </label>
           <label className="flex items-center gap-2 text-sm">
             Min fit
-            <input type="range" min={0} max={90} step={10} value={minFit} onChange={(e) => setMinFit(Number(e.target.value))} className="w-24 accent-[var(--color-accent)]" />
+            <input type="range" min={0} max={90} step={10} value={minFit} onChange={(e) => setMinFit(Number(e.target.value))} className="w-20 accent-[var(--color-accent)]" />
             <span className="w-6 tabular-nums text-muted">{minFit}</span>
           </label>
           <label className="flex items-center gap-2 text-sm">
@@ -128,18 +131,24 @@ export function CandidatesStep() {
             <select className={clsx(inputClass, "w-auto py-1 text-sm")} value={sort} onChange={(e) => setSort(e.target.value as SortKey)}>
               <option value="fit">Fit</option>
               <option value="readiness">Readiness</option>
-              <option value="movability">Movability</option>
+              <option value="movability">Likely to move</option>
               <option value="distance">Distance</option>
             </select>
           </label>
-          <label className="ml-auto flex items-center gap-2 text-sm text-muted">
-            <input type="checkbox" className="h-4 w-4" checked={hideRejected} onChange={(e) => setHideRejected(e.target.checked)} />
-            Hide rejected
-          </label>
+          <span className="ml-auto flex items-center gap-4 text-sm text-muted">
+            <label className="flex items-center gap-2">
+              <input type="checkbox" className="h-4 w-4" checked={showChecklist} onChange={(e) => setShowChecklist(e.target.checked)} />
+              Checklist
+            </label>
+            <label className="flex items-center gap-2">
+              <input type="checkbox" className="h-4 w-4" checked={hideRejected} onChange={(e) => setHideRejected(e.target.checked)} />
+              Hide rejected
+            </label>
+          </span>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[1100px] text-sm">
+          <table className="w-full min-w-[980px] text-sm">
             <thead>
               <tr className="border-b border-line bg-slate-50 text-left text-xs font-medium uppercase tracking-wide text-muted">
                 <th className="px-5 py-2.5">Candidate</th>
@@ -152,7 +161,7 @@ export function CandidatesStep() {
                 </th>
                 <th className="px-3 py-2.5">
                   <span className="inline-flex items-center gap-1">
-                    Movability <HelpIcon text={HELP.movability} />
+                    Likely to move? <HelpIcon text={HELP.movability} />
                   </span>
                 </th>
                 <th className="px-3 py-2.5">
@@ -160,11 +169,13 @@ export function CandidatesStep() {
                     Readiness <HelpIcon text={HELP.readiness} />
                   </span>
                 </th>
-                <th className="px-3 py-2.5">
-                  <span className="inline-flex items-center gap-1">
-                    Mandatory <HelpIcon text={HELP.checklist} />
-                  </span>
-                </th>
+                {showChecklist && (
+                  <th className="px-3 py-2.5">
+                    <span className="inline-flex items-center gap-1">
+                      Must-haves <HelpIcon text={HELP.checklist} />
+                    </span>
+                  </th>
+                )}
                 <th className="px-3 py-2.5" />
               </tr>
             </thead>
@@ -214,9 +225,11 @@ export function CandidatesStep() {
                     <td className="px-3 py-3">
                       <ReadinessChip level={s.readiness.level} reasons={[...s.readiness.blockers, ...s.readiness.todo]} />
                     </td>
-                    <td className="px-3 py-3">
-                      <ChecklistIcons criteria={criteria} matches={s.matches} />
-                    </td>
+                    {showChecklist && (
+                      <td className="px-3 py-3">
+                        <ChecklistIcons criteria={criteria} matches={s.matches} />
+                      </td>
+                    )}
                     <td className="px-3 py-3 text-right">
                       {decision === "accepted" && (
                         <Badge tone="green">

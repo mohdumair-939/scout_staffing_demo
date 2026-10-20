@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, FileText, ListChecks, Lock } from "lucide-react";
+import { ArrowLeft, FileText, Lock } from "lucide-react";
 import { useState } from "react";
 import type { AiResponse } from "@/lib/api";
 import type { PacketText } from "@/lib/ai/schemas";
@@ -11,7 +11,7 @@ import { CandidateDrawer } from "../CandidateDrawer";
 import { ModeChip } from "../ModeChip";
 import { PacketDocument, PrintButton } from "../PacketView";
 import { FitScore, MovabilityChip, PoolBadge, ReadinessChip, ResultIcon } from "../scores";
-import { Button, Card, CardHeader, Modal, Spinner } from "../ui";
+import { Button, Card, Modal, Spinner, StepBanner } from "../ui";
 
 export function ShortlistStep() {
   const { state, dispatch, approvedCriteria } = useDemo();
@@ -38,19 +38,19 @@ export function ShortlistStep() {
 
   return (
     <div className="space-y-5">
-      <Card>
-        <CardHeader
-          title="5. Shortlist & submission packets"
-          subtitle="Accepted candidates. Packets can only be generated for Ready candidates and contain verified or candidate-provided facts only, with no contact details."
-          icon={<ListChecks size={18} />}
-          right={
-            <Button variant="secondary" onClick={() => dispatch({ type: "goto", step: "candidates" })}>
-              <ArrowLeft size={15} /> Back to candidates
-            </Button>
-          }
-        />
-        {accepted.length === 0 && <div className="px-5 py-12 text-center text-sm text-muted">No accepted candidates yet. Open a candidate and press Accept.</div>}
-      </Card>
+      <StepBanner
+        step={5}
+        title="Who do we send to the client?"
+        right={
+          <Button variant="secondary" onClick={() => dispatch({ type: "goto", step: "candidates" })}>
+            <ArrowLeft size={15} /> Back to candidates
+          </Button>
+        }
+      >
+        The people you accepted. For anyone marked <strong>Ready</strong>, one click creates a clean one-page summary for the client: verified and candidate-provided facts only, no
+        contact details. Anyone not yet Ready shows what is still missing.
+      </StepBanner>
+      {accepted.length === 0 && <Card className="px-5 py-12 text-center text-sm text-muted">No accepted candidates yet. Open a candidate and press Accept.</Card>}
 
       {accepted.map((s) => {
         const ready = s.readiness.level === "Ready";

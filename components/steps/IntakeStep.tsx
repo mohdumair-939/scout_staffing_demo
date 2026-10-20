@@ -7,7 +7,7 @@ import type { AiResponse } from "@/lib/api";
 import { SAMPLE_JOBS } from "@/lib/data/samples";
 import type { Extraction, JobInput } from "@/lib/data/types";
 import { EMPTY_JOB, postJson, useDemo } from "@/lib/state";
-import { Button, Card, CardHeader, Field, inputClass, Spinner } from "../ui";
+import { Button, Card, CardHeader, Field, inputClass, Spinner, StepBanner } from "../ui";
 
 const ICONS: Record<string, typeof Briefcase> = {
   "controller-dallas": Landmark,
@@ -59,9 +59,13 @@ export function IntakeStep() {
   ];
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
+    <div className="space-y-5">
+      <StepBanner step={1} title="Paste the client’s job description">
+        Fill in the job details and paste the job description, or click a <strong>sample job</strong> on the right. Then press <strong>Extract requirements</strong>.
+      </StepBanner>
+      <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
       <Card>
-        <CardHeader title="1. Job intake" subtitle="Paste the client's job description, or load a sample with one click." icon={<Briefcase size={18} />} />
+        <CardHeader title="Job details" icon={<Briefcase size={18} />} />
         <div className="grid gap-4 p-5 md:grid-cols-2">
           <Field label="Client name">
             <input className={inputClass} value={job.client} onChange={(e) => set({ client: e.target.value })} placeholder="e.g. Lone Star Freight Holdings" />
@@ -134,6 +138,7 @@ export function IntakeStep() {
           </Card>
         ))}
       </div>
+    </div>
     </div>
   );
 }

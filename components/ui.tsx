@@ -146,3 +146,19 @@ export function Field({ label, children, hint, className }: { label: string; chi
 
 export const inputClass =
   "w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink shadow-sm placeholder:text-slate-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
+
+/** Plain-English "what this step does" banner at the top of each screen. */
+export function StepBanner({ step, title, children, right }: { step: number; title: string; children: ReactNode; right?: ReactNode }) {
+  return (
+    <div className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-indigo-100 bg-gradient-to-r from-indigo-50 to-white px-5 py-4">
+      <div className="flex items-start gap-4">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">{step}</span>
+        <div>
+          <h1 className="text-lg font-semibold text-ink">{title}</h1>
+          <div className="mt-0.5 max-w-3xl text-sm text-slate-600">{children}</div>
+        </div>
+      </div>
+      {right && <div className="flex items-center gap-2">{right}</div>}
+    </div>
+  );
+}

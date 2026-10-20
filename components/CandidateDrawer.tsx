@@ -139,14 +139,14 @@ export function CandidateDrawer({ scored: s, criteria, onClose }: { scored: Scor
               </div>
               <FitScore score={s.fit.score} />
               <div className="mt-1 text-xs text-muted">
-                {s.fit.mandatoryMet}/{s.fit.mandatoryTotal} mandatory met
+                {s.fit.mandatoryMet}/{s.fit.mandatoryTotal} must-haves met
                 {s.fit.mandatoryUnknown ? ` · ${s.fit.mandatoryUnknown} unknown` : ""}
                 {s.fit.mandatoryFailed ? ` · ${s.fit.mandatoryFailed} failed` : ""}
               </div>
             </div>
             <div className="rounded-lg border border-line p-3">
               <div className="mb-1 flex items-center gap-1 text-xs font-medium uppercase text-muted">
-                Movability <HelpIcon text={HELP.movability} />
+                Likely to move? <HelpIcon text={HELP.movability} />
               </div>
               <MovabilityChip level={s.movability.level} />
               <div className="mt-1 line-clamp-3 text-xs text-muted">{s.movability.basis}</div>
@@ -221,7 +221,7 @@ export function CandidateDrawer({ scored: s, criteria, onClose }: { scored: Scor
           {/* checklist */}
           <section>
             <h3 className="mb-2 flex items-center gap-1.5 text-sm font-semibold">
-              <ClipboardList size={15} /> Mandatory checklist <HelpIcon text={HELP.checklist} />
+              <ClipboardList size={15} /> Must-have checklist <HelpIcon text={HELP.checklist} />
             </h3>
             <div className="divide-y divide-line rounded-lg border border-line">
               {mand.map((cr) => {
@@ -243,7 +243,7 @@ export function CandidateDrawer({ scored: s, criteria, onClose }: { scored: Scor
             </div>
             {pref.length > 0 && (
               <details className="mt-2">
-                <summary className="cursor-pointer text-xs font-medium text-muted">Preferred criteria ({pref.filter((p) => byId.get(p.id)?.result === "meets").length}/{pref.length} met)</summary>
+                <summary className="cursor-pointer text-xs font-medium text-muted">Nice-to-haves ({pref.filter((p) => byId.get(p.id)?.result === "meets").length}/{pref.length} met)</summary>
                 <div className="mt-2 divide-y divide-line rounded-lg border border-line">
                   {pref.map((cr) => {
                     const m = byId.get(cr.id)!;

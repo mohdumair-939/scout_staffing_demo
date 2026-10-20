@@ -4,7 +4,7 @@ A demo-ready prototype of an AI recruiting platform. A recruiter pastes a client
 
 1. **Extracts structured requirements** (mandatory vs preferred, each with its supporting JD quote), removes discriminatory requirements (age, sex, religion, national origin, pregnancy, disability, marital status…) and asks clarification questions.
 2. **Plans where to search**: internal pool and job board (active), plus **passive** sources: mock state licensing registry, Board of Accountancy, State Bar, professional associations, a professional data provider and an open-source source for tech roles.
-3. **Finds and ranks active and passive candidates** with three separate scores (**Fit**, **Movability / interest**, **Readiness**), a ✅ / ❌ / ❔ mandatory checklist, and provenance on every fact (**VERIFIED / SELF-REPORTED / INFERRED**).
+3. **Finds and ranks active and passive candidates** with three separate scores (**Fit**, **Likely to move?** i.e. movability / interest, **Readiness**), a ✅ / ❌ / ❔ must-have checklist, and provenance on every fact (**VERIFIED / SELF-REPORTED / INFERRED**).
 4. **Verifies licences** against a mock registry (which sometimes disagrees with the candidate), records confirmed interest, and builds a **shortlist** with a printable, client-safe **submission packet**.
 
 It's occupation-agnostic. The 11 one-click samples cover accounting, tax, legal, construction estimating, nursing, electrical, HVAC, trucking and software.
@@ -44,7 +44,7 @@ Other scripts:
 
 The key is only read in server route handlers (`lib/ai/client.ts` is `server-only`) and never reaches the browser.
 
-## Deploy to Vercel
+## Deploy to Vercel (recommended)
 
 1. Push this folder to a GitHub repository.
 2. In Vercel: **Add New… → Project → Import** the repository.
@@ -53,6 +53,16 @@ The key is only read in server route handlers (`lib/ai/client.ts` is `server-onl
 5. Click **Deploy**. You'll get a public URL like `https://<project>.vercel.app`.
 
 AI routes set `maxDuration = 60`; each AI call has its own 25-second timeout and falls back to rules, so a slow model never hangs the demo.
+
+## Deploy to Render (alternative)
+
+The repo includes `render.yaml`, so Render can set it up as a Blueprint:
+
+1. In Render: **New → Blueprint**, connect GitHub and pick this repository. Render reads `render.yaml` (Node web service, `npm ci && npm run build`, start `npm start`).
+2. When asked, enter `ANTHROPIC_API_KEY` (optional) and click **Apply**.
+3. Wait for the build, then open the `https://<service>.onrender.com` URL.
+
+Or manually: **New → Web Service**, runtime **Node**, build command `npm ci && npm run build`, start command `npm start`, add the env vars. Note that Render's free plan sleeps after inactivity, so the first page load can take ~30–60 s. Open the URL a few minutes before presenting.
 
 ---
 
@@ -66,26 +76,26 @@ Before you start: open the app, click **Reset demo**, and use a 1280-px-wide win
 - Click **Extract requirements**.
 
 **0:30 · Requirements (1 min 30 s)**
-- 11 criteria appear, each with category, MANDATORY/PREFERRED and its JD quote. Hover a row: the quote lights up in the JD on the left.
+- The JD becomes a checklist: 7 **Must-haves** (mandatory) and 4 **Nice-to-haves** (preferred, collapsed). Each shows the JD sentence it came from; hover a row and that sentence lights up in the JD on the left. Use the pencil to edit, **→ Nice-to-have / → Must-have** to switch.
 - Red card: *"Removed: possible discriminatory requirement (Age)"* for *"We prefer candidates under 45…"*. It's never used for matching.
 - Clarification question 1, *"Is an active CPA license required on day one?"*: click **"Yes, required on day one"**.
-- Click **Approve requirements** to lock v1. *(Optional: toggle "Big 4" to MANDATORY, click **View diff**, then **Approve as v2**.)*
+- Click **Approve and continue** to lock v1 and move on. *(Optional: come back, switch a nice-to-have to must-have, click **What changed?**, then **Approve as v2**.)*
 - *(If live AI is on: **Re-run with AI** shows live extraction. The chip changes from Cached to AI.)*
 
 **2:00 · Source plan, the differentiator (1 min)**
-- Internal pool comes first, then the job board, then the passive sources: **Mock State Board of Accountancy** and **Mock Professional Data Provider**. The Licensing Registry, State Bar and Open-Source sources are shown as *not recommended* for this role.
-- Each card shows what it can verify and its known gaps. The data provider is *"INFERRED, not verified"*.
-- Click **Run discovery**. Each source animates and reports *"Found N records"*. Then click **View candidates**.
+- Two columns: **green = Active** (internal pool, job board: people who are applying) and **purple = Passive** (Board of Accountancy, Professional Data Provider: people who are *not* looking). Sources not needed for this job are tucked under *"Other sources not needed for this job"*.
+- *"What it can verify / known gaps"* opens the details; e.g. the data provider is *"INFERRED, not verified"*.
+- Click **Run discovery**. Each source animates and shows *"Found N"*. Then click **Next: see candidates**.
 
 **3:00 · Candidates (2 min 30 s)**
-- 24 candidates: 13 active and 11 passive. Show the **Passive** tab, then the three score columns, hovering the ⓘ tooltips.
+- 24 candidates: 13 active and 11 passive. Show the **Passive** tab, then the three score columns (**Fit**, **Likely to move?**, **Readiness**), hovering the ⓘ tooltips. Tick **Checklist** to show the ✅/❌/❔ must-have icons.
 - #1 is **Derek Holloway**, an active applicant with a perfect-looking profile who *says* his CPA is active.
 - #2 is **Priya Raman**, *passive* and found only through the data provider: Corporate Controller at Pecan Street Capital, 2 miles away. Signals: 5.6 years in the job, her employer announced layoffs, and she updated her profile 14 days ago. **She would never have shown up among applicants.**
 - Open **Priya Raman**:
   - Explanation and screening questions are built only from her record.
   - Her facts are INFERRED. Readiness is *Needs verification*.
   - Click **Verify Certified Public Accountant**. The registry confirms: *"Mock TX State Board of Public Accountancy · #… · Active · expires …"*. The licence becomes VERIFIED.
-  - Click **Mark interest confirmed** (simulates the recruiter's call). Movability becomes Confirmed, inferred facts become confirmed, and readiness turns **Ready**.
+  - Click **Mark interest confirmed** (simulates the recruiter's call). "Likely to move?" becomes Confirmed, inferred facts become confirmed, and readiness turns **Ready**.
   - Click **Accept**.
 - Open **Derek Holloway** and click **Verify**. The registry says *"Lapsed: CPE reporting not completed"*, so he turns **Blocked**. *This is why verification matters.* Click **Reject** and pick "Licence / credential issue".
 - Optional: **Elena Vasquez** shows *"Found in 2 sources"* (internal pool + data provider, merged into one profile). **Tom Okafor** shows ❔ unknowns and screening questions that cover only those gaps. **Marcus Bell** is already Ready (internal, recruiter-confirmed). Accept him too.

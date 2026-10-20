@@ -13,13 +13,13 @@ import { Badge, Tip } from "./ui";
 export const HELP = {
   fit: "FIT (0–100): how well the profile meets the approved criteria. Mandatory criteria carry 75% of the score; failing any mandatory criterion caps fit at 49. Unknown earns partial credit: never a pass, never a fail.",
   movability:
-    "MOVABILITY / INTEREST: how likely they are to move now. Confirmed (recruiter spoke to them) > High (applied in the last 90 days) > Medium (past late-stage candidate, or passive with signals: long tenure, employer layoffs, recent profile update) > Low (no signal).",
+    "LIKELY TO MOVE? (movability / interest): how likely they are to move now. Confirmed (recruiter spoke to them) > High (applied in the last 90 days) > Medium (past late-stage candidate, or passive with signals: long tenure, employer layoffs, recent profile update) > Low (no signal).",
   readiness:
     "READINESS: Ready = every mandatory criterion met, licences verified with the registry, nothing resting only on inferred data, and interest confirmed. Blocked = fails a mandatory criterion. Anything else = Needs verification.",
   verified: "VERIFIED: checked against an authoritative source (licence registry, recruiter check) on the date shown.",
   self_reported: "SELF-REPORTED: stated by the candidate (résumé, application, phone call). Not independently checked.",
   inferred: "INFERRED: derived by a data provider from professional / public data. Treat it as a lead, not a fact, until confirmed.",
-  checklist: "Mandatory checklist: ✅ meets, ❌ does not meet, ❔ unknown. Missing information is always UNKNOWN, never a pass or a fail.",
+  checklist: "Must-have (mandatory) checklist: ✅ meets, ❌ does not meet, ❔ unknown. Missing information is always UNKNOWN, never a pass or a fail.",
 };
 
 export function HelpIcon({ text }: { text: string }) {
