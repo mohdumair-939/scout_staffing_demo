@@ -1,0 +1,147 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "senior-accountant-chicago",
+  "group": "main",
+  "label": "Senior Accountant",
+  "client": "Lakeshore Health Partners",
+  "title": "Senior Accountant",
+  "location": "Chicago, IL 60603",
+  "payRange": "$85,000 – $100,000",
+  "jd": "Lakeshore Health Partners operates 14 outpatient clinics across Chicagoland. Our corporate accounting team is looking for a Senior Accountant to own key parts of the close.\n\nResponsibilities\n- Prepare journal entries, balance sheet reconciliations and monthly financial statements.\n- Support the annual audit and quarterly reviews.\n- Maintain fixed asset and prepaid schedules.\n- Help improve close processes and documentation.\n\nRequirements\n- Bachelor's degree in Accounting.\n- 4+ years of accounting experience, including general ledger and account reconciliations.\n- Advanced Excel (pivot tables, XLOOKUP).\n- Based within commuting distance of our Chicago Loop office (hybrid, 2 days remote).\n- Must be a native English speaker.\n\nPreferred\n- CPA or CPA candidate.\n- NetSuite experience.\n- Public accounting experience.\n- Healthcare industry background.",
+  "extraction": {
+    "family": "accounting",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "education",
+        "text": "Bachelor's degree in Accounting",
+        "value": "bachelor",
+        "mandatory": true,
+        "quote": "Bachelor's degree in Accounting",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "experience",
+        "text": "4+ years of accounting experience",
+        "value": "4",
+        "mandatory": true,
+        "quote": "4+ years of accounting experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "skill",
+        "text": "General ledger and account reconciliations",
+        "value": "",
+        "mandatory": true,
+        "quote": "including general ledger and account reconciliations",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "Monthly financial statements preparation",
+        "value": "",
+        "mandatory": true,
+        "quote": "Prepare journal entries, balance sheet reconciliations and monthly financial statements",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "tools",
+        "text": "Advanced Excel (pivot tables, XLOOKUP)",
+        "value": "",
+        "mandatory": true,
+        "quote": "Advanced Excel (pivot tables, XLOOKUP)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "location",
+        "text": "Commutable to the Chicago Loop office, within 30 miles (hybrid)",
+        "value": "30",
+        "mandatory": true,
+        "quote": "Based within commuting distance of our Chicago Loop office (hybrid, 2 days remote)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "license",
+        "text": "CPA or CPA candidate",
+        "value": "CPA",
+        "mandatory": false,
+        "quote": "CPA or CPA candidate",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "tools",
+        "text": "NetSuite",
+        "value": "",
+        "mandatory": false,
+        "quote": "NetSuite experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "skill",
+        "text": "Public accounting experience",
+        "value": "",
+        "mandatory": false,
+        "quote": "Public accounting experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "other",
+        "text": "Healthcare industry background",
+        "value": "",
+        "mandatory": false,
+        "quote": "Healthcare industry background",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "Must be a native English speaker",
+        "trait": "National origin",
+        "reason": "\"Native speaker\" requirements can discriminate on national origin (Title VII). If English fluency matters, state the level of proficiency needed instead."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Is the CPA truly optional, or expected within 12–18 months?",
+        "why": "Changes how CPA candidates rank against non-CPAs.",
+        "kind": "toggle_mandatory",
+        "targetId": "c7",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "Would a Finance degree with accounting coursework be accepted?",
+        "why": "Several experienced candidates hold Finance degrees.",
+        "kind": "set_value",
+        "targetId": "c1",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Is overtime expected during month-end close?",
+        "why": "Not stated in the JD.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "schedule"
+      },
+      {
+        "id": "q4",
+        "question": "What level of English proficiency does the role actually need?",
+        "why": "Replaces the removed \"native speaker\" line with a lawful, job-related requirement.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "language"
+      }
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "rn-icu-houston",
+  "group": "other",
+  "label": "ICU Registered Nurse",
+  "client": "Bayou City Medical Center",
+  "title": "Registered Nurse – ICU (Nights)",
+  "location": "Houston, TX 77030",
+  "payRange": "$48 – $62 / hour + night differential",
+  "jd": "Bayou City Medical Center is a 600-bed teaching hospital in the Texas Medical Center. Our 32-bed Medical ICU is hiring night-shift Registered Nurses.\n\nRequirements\n- Active Texas RN license or multistate (compact) RN license.\n- 2+ years of recent ICU nursing experience (MICU, SICU or CVICU).\n- Current BLS and ACLS certifications.\n- Experience with ventilator management and vasoactive drip titration.\n- Able to work 12-hour night shifts, including every third weekend.\n- Live within 30 miles of the Texas Medical Center.\n\nPreferred\n- CCRN certification.\n- BSN degree.\n- Epic EMR experience.\n- CRRT experience.\n- Bilingual English/Spanish.\n- Ability to lift and reposition patients up to 50 lbs.\n\nNot suitable for pregnant applicants due to physical demands.",
+  "extraction": {
+    "family": "nursing",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "license",
+        "text": "Active Texas or multistate (compact) RN license",
+        "value": "RN",
+        "mandatory": true,
+        "quote": "Active Texas RN license or multistate (compact) RN license",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "experience",
+        "text": "2+ years of recent ICU nursing experience",
+        "value": "2",
+        "mandatory": true,
+        "quote": "2+ years of recent ICU nursing experience (MICU, SICU or CVICU)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "license",
+        "text": "Current BLS and ACLS",
+        "value": "BLS, ACLS",
+        "mandatory": true,
+        "quote": "Current BLS and ACLS certifications",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "Ventilator management and vasoactive drip titration",
+        "value": "",
+        "mandatory": true,
+        "quote": "Experience with ventilator management and vasoactive drip titration",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "schedule",
+        "text": "12-hour night shifts, every third weekend",
+        "value": "",
+        "mandatory": true,
+        "quote": "Able to work 12-hour night shifts, including every third weekend",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "location",
+        "text": "Within 30 miles of the Texas Medical Center",
+        "value": "30",
+        "mandatory": true,
+        "quote": "Live within 30 miles of the Texas Medical Center",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "license",
+        "text": "CCRN certification",
+        "value": "CCRN",
+        "mandatory": false,
+        "quote": "CCRN certification",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "education",
+        "text": "BSN degree",
+        "value": "bachelor",
+        "mandatory": false,
+        "quote": "BSN degree",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "tools",
+        "text": "Epic EMR",
+        "value": "",
+        "mandatory": false,
+        "quote": "Epic EMR experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "skill",
+        "text": "CRRT experience",
+        "value": "",
+        "mandatory": false,
+        "quote": "CRRT experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c11",
+        "category": "language",
+        "text": "Bilingual English/Spanish",
+        "value": "Spanish",
+        "mandatory": false,
+        "quote": "Bilingual English/Spanish",
+        "origin": "extracted"
+      },
+      {
+        "id": "c12",
+        "category": "physical",
+        "text": "Lift and reposition patients up to 50 lbs",
+        "value": "50",
+        "mandatory": false,
+        "quote": "Ability to lift and reposition patients up to 50 lbs",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "Not suitable for pregnant applicants due to physical demands.",
+        "trait": "Pregnancy",
+        "reason": "Excluding pregnant applicants violates the Pregnancy Discrimination Act. Physical demands are listed as job requirements instead."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Do you accept compact licenses from any NLC state, or Texas only?",
+        "why": "Several strong nurses hold multistate licenses from other states.",
+        "kind": "set_value",
+        "targetId": "c1",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "Must the CCRN be obtained within 12 months of hire?",
+        "why": "Currently preferred.",
+        "kind": "toggle_mandatory",
+        "targetId": "c7",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Are travel / contract nurses acceptable for this opening?",
+        "why": "Widens the active pool considerably.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      },
+      {
+        "id": "q4",
+        "question": "Is there a sign-on bonus or relocation package?",
+        "why": "Helps convert passive ICU nurses.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      }
+    ]
+  }
+}

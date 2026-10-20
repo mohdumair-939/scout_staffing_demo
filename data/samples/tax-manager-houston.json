@@ -1,0 +1,156 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "tax-manager-houston",
+  "group": "main",
+  "label": "Tax Manager",
+  "client": "Gulf Coast Energy Partners",
+  "title": "Tax Manager",
+  "location": "Houston, TX",
+  "payRange": "$140,000 – $165,000",
+  "jd": "Gulf Coast Energy Partners is a midstream energy company with operations in Texas, Louisiana and New Mexico. We are adding a Tax Manager to our corporate tax group.\n\nResponsibilities\n- Manage federal and state compliance for corporate and partnership entities.\n- Prepare the quarterly and annual income tax provision.\n- Supervise two tax seniors and coordinate with outside advisors.\n- Support audits and tax research on new transactions.\n\nRequirements\n- Active CPA license.\n- 7+ years of tax experience, including at least 2 years supervising staff.\n- Expertise in corporate (Form 1120) and partnership (Form 1065) tax compliance.\n- ASC 740 income tax provision experience.\n- Located in the Houston area (within 40 miles); on-site 4 days per week.\n- Available for extended hours during busy season (Feb–Apr, Aug–Oct).\n\nPreferred\n- Big 4 or regional public accounting firm experience.\n- Master's in Taxation (MST).\n- Oil & gas industry experience.\n- CCH Axcess or OneSource.\n\nThis role suits a young, high-energy professional.",
+  "extraction": {
+    "family": "tax",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "license",
+        "text": "Active CPA license",
+        "value": "CPA",
+        "mandatory": true,
+        "quote": "Active CPA license",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "experience",
+        "text": "7+ years of tax experience",
+        "value": "7",
+        "mandatory": true,
+        "quote": "7+ years of tax experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "skill",
+        "text": "Corporate (Form 1120) and partnership (Form 1065) tax compliance",
+        "value": "",
+        "mandatory": true,
+        "quote": "Expertise in corporate (Form 1120) and partnership (Form 1065) tax compliance",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "ASC 740 income tax provision",
+        "value": "",
+        "mandatory": true,
+        "quote": "ASC 740 income tax provision experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "location",
+        "text": "Houston area, within 40 miles (on-site 4 days/week)",
+        "value": "40",
+        "mandatory": true,
+        "quote": "Located in the Houston area (within 40 miles)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "schedule",
+        "text": "Extended hours during busy season",
+        "value": "",
+        "mandatory": true,
+        "quote": "Available for extended hours during busy season (Feb–Apr, Aug–Oct)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "experience",
+        "text": "2+ years supervising tax staff",
+        "value": "2",
+        "mandatory": false,
+        "quote": "including at least 2 years supervising staff",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "skill",
+        "text": "Big 4 or regional public accounting experience",
+        "value": "",
+        "mandatory": false,
+        "quote": "Big 4 or regional public accounting firm experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "education",
+        "text": "Master's in Taxation (MST)",
+        "value": "master",
+        "mandatory": false,
+        "quote": "Master's in Taxation (MST)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "skill",
+        "text": "Oil & gas industry experience",
+        "value": "",
+        "mandatory": false,
+        "quote": "Oil & gas industry experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c11",
+        "category": "tools",
+        "text": "CCH Axcess or OneSource",
+        "value": "",
+        "mandatory": false,
+        "quote": "CCH Axcess or OneSource",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "This role suits a young, high-energy professional.",
+        "trait": "Age",
+        "reason": "\"Young\" is an age preference (ADEA). Describe the work instead, e.g. \"comfortable with busy-season workloads\"."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Would an Enrolled Agent (EA) be considered in place of a CPA?",
+        "why": "EAs are common in partnership tax; the CPA is currently a hard requirement.",
+        "kind": "set_value",
+        "targetId": "c1",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "Are the 2 years of supervising staff a must-have?",
+        "why": "Extracted as preferred because it sits inside the experience line.",
+        "kind": "toggle_mandatory",
+        "targetId": "c7",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Is remote work possible outside busy season?",
+        "why": "Affects candidates outside the 40-mile radius.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "schedule"
+      },
+      {
+        "id": "q4",
+        "question": "Is there flexibility above $165K for Big 4 managers?",
+        "why": "Big 4 tax managers in Houston often expect more.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      }
+    ]
+  }
+}

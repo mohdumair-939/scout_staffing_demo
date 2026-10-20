@@ -1,0 +1,147 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "paralegal-atlanta",
+  "group": "main",
+  "label": "Litigation Paralegal",
+  "client": "Peachtree Litigation Group LLP",
+  "title": "Litigation Paralegal",
+  "location": "Atlanta, GA 30309",
+  "payRange": "$65,000 – $80,000",
+  "jd": "Peachtree Litigation Group LLP is a 40-attorney commercial litigation firm in Midtown Atlanta. We are hiring an experienced Litigation Paralegal to support two trial teams.\n\nResponsibilities\n- Manage document productions and review databases.\n- Draft discovery requests, subpoenas and correspondence.\n- Prepare for depositions, hearings and trial.\n- Maintain case calendars and court deadlines.\n\nRequirements\n- 3+ years of experience as a litigation paralegal.\n- Paralegal certificate (ABA-approved program) or a bachelor's degree.\n- E-discovery experience with Relativity.\n- E-filing in state and federal courts (PACER / CM/ECF).\n- Trial preparation: exhibits, trial binders and witness files.\n- Work on-site at our Midtown Atlanta office (within 30 miles).\n\nPreferred\n- NALA Certified Paralegal (CP) credential.\n- Bilingual English/Spanish.\n- Experience with iManage or Clio.\n- Legal research using Westlaw.\n\nFemale candidates preferred to balance the team.",
+  "extraction": {
+    "family": "legal",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "experience",
+        "text": "3+ years as a litigation paralegal",
+        "value": "3",
+        "mandatory": true,
+        "quote": "3+ years of experience as a litigation paralegal",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "education",
+        "text": "Paralegal certificate or bachelor's degree",
+        "value": "certificate",
+        "mandatory": true,
+        "quote": "Paralegal certificate (ABA-approved program) or a bachelor's degree",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "tools",
+        "text": "E-discovery with Relativity",
+        "value": "",
+        "mandatory": true,
+        "quote": "E-discovery experience with Relativity",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "Court e-filing (PACER / CM/ECF)",
+        "value": "",
+        "mandatory": true,
+        "quote": "E-filing in state and federal courts (PACER / CM/ECF)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "skill",
+        "text": "Trial preparation (exhibits, trial binders)",
+        "value": "",
+        "mandatory": true,
+        "quote": "Trial preparation: exhibits, trial binders and witness files",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "location",
+        "text": "On-site in Midtown Atlanta, within 30 miles",
+        "value": "30",
+        "mandatory": true,
+        "quote": "Work on-site at our Midtown Atlanta office (within 30 miles)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "license",
+        "text": "NALA Certified Paralegal (CP)",
+        "value": "NALA_CP",
+        "mandatory": false,
+        "quote": "NALA Certified Paralegal (CP) credential",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "language",
+        "text": "Bilingual English/Spanish",
+        "value": "Spanish",
+        "mandatory": false,
+        "quote": "Bilingual English/Spanish",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "tools",
+        "text": "iManage or Clio",
+        "value": "",
+        "mandatory": false,
+        "quote": "Experience with iManage or Clio",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "skill",
+        "text": "Legal research (Westlaw)",
+        "value": "",
+        "mandatory": false,
+        "quote": "Legal research using Westlaw",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "Female candidates preferred to balance the team.",
+        "trait": "Sex / gender",
+        "reason": "A gender preference is sex discrimination under Title VII. It was not used for matching."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Is overtime expected in the weeks before trial?",
+        "why": "Common for litigation teams; not stated.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "schedule"
+      },
+      {
+        "id": "q2",
+        "question": "Is the NALA CP needed for client billing rates?",
+        "why": "Some clients only bill certified paralegals at the senior rate.",
+        "kind": "toggle_mandatory",
+        "targetId": "c7",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Would 2 years of litigation experience plus a certificate be considered?",
+        "why": "Opens the pool to strong junior paralegals.",
+        "kind": "set_value",
+        "targetId": "c1",
+        "category": "other"
+      },
+      {
+        "id": "q4",
+        "question": "Is there flexibility above $80K for senior paralegals?",
+        "why": "Top candidates in Midtown are at $78–85K.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      }
+    ]
+  }
+}

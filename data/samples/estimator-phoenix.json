@@ -1,0 +1,156 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "estimator-phoenix",
+  "group": "main",
+  "label": "Construction Estimator",
+  "client": "Desert Peak Builders",
+  "title": "Senior Construction Estimator",
+  "location": "Phoenix, AZ",
+  "payRange": "$95,000 – $120,000",
+  "jd": "Desert Peak Builders is a commercial general contractor building schools, medical offices and light industrial projects across the Valley.\n\nWhat you'll do\n- Own estimates from conceptual budgets through hard bid.\n- Build detailed quantity takeoffs and cost models.\n- Solicit, review and level subcontractor bids.\n- Present bid strategy and assumptions to leadership.\n\nRequirements\n- 5+ years of commercial construction estimating experience.\n- Perform takeoffs using Bluebeam Revu or On-Screen Takeoff.\n- Read and interpret blueprints, plans and specifications.\n- Prepare hard bid and negotiated bid packages for commercial projects from $5M to $50M.\n- Solicit and level subcontractor bids.\n- Live within 40 miles of Phoenix; occasional job site visits across the Valley.\n\nPreferred\n- ASPE Certified Professional Estimator (CPE).\n- Bachelor's degree in Construction Management or Engineering.\n- Experience with ProEst or Sage Estimating.\n- Bilingual English/Spanish.\n- Able to walk active job sites and climb ladders during site visits.\n\nSingle candidates preferred because of the travel schedule.",
+  "extraction": {
+    "family": "estimating",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "experience",
+        "text": "5+ years of commercial construction estimating",
+        "value": "5",
+        "mandatory": true,
+        "quote": "5+ years of commercial construction estimating experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "tools",
+        "text": "Takeoff software: Bluebeam Revu or On-Screen Takeoff",
+        "value": "",
+        "mandatory": true,
+        "quote": "Perform takeoffs using Bluebeam Revu or On-Screen Takeoff",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "skill",
+        "text": "Blueprint and specification reading",
+        "value": "",
+        "mandatory": true,
+        "quote": "Read and interpret blueprints, plans and specifications",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "Hard bid and negotiated bid packages ($5M–$50M commercial)",
+        "value": "",
+        "mandatory": true,
+        "quote": "Prepare hard bid and negotiated bid packages for commercial projects from $5M to $50M",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "skill",
+        "text": "Subcontractor bid leveling",
+        "value": "",
+        "mandatory": true,
+        "quote": "Solicit and level subcontractor bids",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "location",
+        "text": "Within 40 miles of Phoenix",
+        "value": "40",
+        "mandatory": true,
+        "quote": "Live within 40 miles of Phoenix",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "license",
+        "text": "ASPE Certified Professional Estimator (CPE)",
+        "value": "CPE_ESTIMATOR",
+        "mandatory": false,
+        "quote": "ASPE Certified Professional Estimator (CPE)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "education",
+        "text": "Bachelor's in Construction Management or Engineering",
+        "value": "bachelor",
+        "mandatory": false,
+        "quote": "Bachelor's degree in Construction Management or Engineering",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "tools",
+        "text": "ProEst or Sage Estimating",
+        "value": "",
+        "mandatory": false,
+        "quote": "Experience with ProEst or Sage Estimating",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "language",
+        "text": "Bilingual English/Spanish",
+        "value": "Spanish",
+        "mandatory": false,
+        "quote": "Bilingual English/Spanish",
+        "origin": "extracted"
+      },
+      {
+        "id": "c11",
+        "category": "physical",
+        "text": "Walk active job sites and climb ladders",
+        "value": "",
+        "mandatory": false,
+        "quote": "Able to walk active job sites and climb ladders during site visits",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "Single candidates preferred because of the travel schedule.",
+        "trait": "Marital status",
+        "reason": "Marital status is protected in many states and is not job-related. Describe the travel instead."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "How much travel is expected: Valley job sites only, or out of state?",
+        "why": "Replaces the removed marital-status line with the real job requirement.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "schedule"
+      },
+      {
+        "id": "q2",
+        "question": "Is Bluebeam specifically required, or is any digital takeoff tool fine?",
+        "why": "Some strong estimators use PlanSwift or STACK.",
+        "kind": "set_value",
+        "targetId": "c2",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Will the estimator cover self-performed trades, or subcontracted scopes only?",
+        "why": "Changes which estimating background fits best.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      },
+      {
+        "id": "q4",
+        "question": "Is the ASPE CPE expected within a set timeframe?",
+        "why": "Currently preferred only.",
+        "kind": "toggle_mandatory",
+        "targetId": "c7",
+        "category": "other"
+      }
+    ]
+  }
+}

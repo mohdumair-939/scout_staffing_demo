@@ -1,0 +1,164 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "controller-dallas",
+  "group": "main",
+  "label": "Controller",
+  "client": "Lone Star Freight Holdings",
+  "title": "Controller",
+  "location": "Dallas, TX",
+  "payRange": "$150,000 – $175,000 + 15% bonus",
+  "jd": "Lone Star Freight Holdings is a fast-growing, PE-backed logistics company with 6 legal entities and $320M in annual revenue. We are hiring a Controller to own accounting operations and report directly to the CFO.\n\nWhat you'll do\n- Lead the monthly close and deliver accurate financial statements within 8 business days.\n- Own multi-entity consolidation and intercompany eliminations.\n- Manage a team of 5 (2 senior accountants, 2 staff accountants, 1 AP specialist).\n- Coordinate the annual external audit and maintain internal controls.\n- Partner with FP&A on budgeting and forecasting.\n\nRequirements\n- Active CPA license (Texas, or any U.S. state with practice mobility).\n- 8+ years of progressive accounting experience.\n- At least 3 years managing accounting teams.\n- Hands-on month-end close and consolidation experience under US GAAP.\n- Strong ERP skills: NetSuite or SAP.\n- Bachelor's degree in Accounting or Finance.\n- Must be able to work on-site in Dallas at least 3 days per week (hybrid).\n\nNice to have\n- Public accounting (Big 4) audit background.\n- Experience with ASC 606 revenue recognition.\n- Power BI or advanced Excel reporting.\n- MBA.\n\nOther\n- We prefer candidates under 45 who can grow with the company long term.",
+  "extraction": {
+    "family": "accounting",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "license",
+        "text": "Active CPA license (Texas, or any U.S. state with practice mobility)",
+        "value": "CPA",
+        "mandatory": true,
+        "quote": "Active CPA license (Texas, or any U.S. state with practice mobility)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "experience",
+        "text": "8+ years of progressive accounting experience",
+        "value": "8",
+        "mandatory": true,
+        "quote": "8+ years of progressive accounting experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "experience",
+        "text": "3+ years managing accounting teams",
+        "value": "3",
+        "mandatory": true,
+        "quote": "At least 3 years managing accounting teams",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "Month-end close and consolidation",
+        "value": "",
+        "mandatory": true,
+        "quote": "Hands-on month-end close and consolidation experience under US GAAP",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "tools",
+        "text": "ERP: NetSuite or SAP",
+        "value": "",
+        "mandatory": true,
+        "quote": "Strong ERP skills: NetSuite or SAP",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "education",
+        "text": "Bachelor's degree in Accounting or Finance",
+        "value": "bachelor",
+        "mandatory": true,
+        "quote": "Bachelor's degree in Accounting or Finance",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "location",
+        "text": "On-site in Dallas 3 days/week (hybrid), within 35 miles",
+        "value": "35",
+        "mandatory": true,
+        "quote": "Must be able to work on-site in Dallas at least 3 days per week (hybrid)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "skill",
+        "text": "Public accounting (Big 4) audit background",
+        "value": "",
+        "mandatory": false,
+        "quote": "Public accounting (Big 4) audit background",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "skill",
+        "text": "ASC 606 revenue recognition",
+        "value": "",
+        "mandatory": false,
+        "quote": "Experience with ASC 606 revenue recognition",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "tools",
+        "text": "Power BI or advanced Excel reporting",
+        "value": "",
+        "mandatory": false,
+        "quote": "Power BI or advanced Excel reporting",
+        "origin": "extracted"
+      },
+      {
+        "id": "c11",
+        "category": "education",
+        "text": "MBA",
+        "value": "master",
+        "mandatory": false,
+        "quote": "MBA",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "We prefer candidates under 45 who can grow with the company long term",
+        "trait": "Age",
+        "reason": "An age preference is not a lawful requirement (ADEA protects workers 40+). It was not used for matching."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Is an active CPA license required on day one, or is CPA-eligible acceptable?",
+        "why": "Decides whether strong candidates still sitting for the exam are blocked.",
+        "kind": "toggle_mandatory",
+        "targetId": "c1",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "What commute radius should we search for the 3-day on-site requirement?",
+        "why": "The JD doesn't state a radius; we assumed 35 miles.",
+        "kind": "set_value",
+        "targetId": "c7",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Is relocation assistance available for out-of-area candidates?",
+        "why": "Several strong passive candidates live outside the Dallas area.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "location"
+      },
+      {
+        "id": "q4",
+        "question": "Is Big 4 / public accounting experience a must-have or a nice-to-have?",
+        "why": "Listed as nice-to-have, but clients often screen on it.",
+        "kind": "toggle_mandatory",
+        "targetId": "c8",
+        "category": "other"
+      },
+      {
+        "id": "q5",
+        "question": "Are extended hours expected during quarter-end close or the audit?",
+        "why": "Not stated; affects candidates who need fixed hours.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "schedule"
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "cdl-san-antonio",
+  "group": "other",
+  "label": "CDL-A Truck Driver",
+  "client": "Alamo Regional Freight",
+  "title": "CDL-A Regional Truck Driver",
+  "location": "San Antonio, TX",
+  "payRange": "$1,350 – $1,650 / week",
+  "jd": "Alamo Regional Freight runs dry van and reefer freight across Texas, Oklahoma and Louisiana.\n\nRequirements\n- Valid Class A CDL (CDL-A).\n- 2+ years of verifiable tractor-trailer driving experience.\n- Clean MVR: no more than 2 moving violations in 3 years, no DUI.\n- Current DOT medical card.\n- Regional routes, home weekly (out 5–6 days).\n- Must live within 50 miles of our San Antonio terminal.\n\nPreferred\n- Hazmat and tanker endorsements.\n- Reefer experience.\n- ELD / hours-of-service experience.\n\nMust be a U.S.-born citizen.",
+  "extraction": {
+    "family": "trucking",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "license",
+        "text": "Valid Class A CDL",
+        "value": "CDL-A",
+        "mandatory": true,
+        "quote": "Valid Class A CDL (CDL-A)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "experience",
+        "text": "2+ years of tractor-trailer driving",
+        "value": "2",
+        "mandatory": true,
+        "quote": "2+ years of verifiable tractor-trailer driving experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "background",
+        "text": "Clean MVR (≤2 moving violations in 3 years, no DUI)",
+        "value": "",
+        "mandatory": true,
+        "quote": "Clean MVR: no more than 2 moving violations in 3 years, no DUI",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "license",
+        "text": "Current DOT medical card",
+        "value": "DOT_MEDICAL",
+        "mandatory": true,
+        "quote": "Current DOT medical card",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "schedule",
+        "text": "Regional routes, home weekly",
+        "value": "",
+        "mandatory": true,
+        "quote": "Regional routes, home weekly (out 5–6 days)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "location",
+        "text": "Within 50 miles of the San Antonio terminal",
+        "value": "50",
+        "mandatory": true,
+        "quote": "Must live within 50 miles of our San Antonio terminal",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "license",
+        "text": "Hazmat and tanker endorsements",
+        "value": "HAZMAT, TANKER",
+        "mandatory": false,
+        "quote": "Hazmat and tanker endorsements",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "skill",
+        "text": "Reefer experience",
+        "value": "",
+        "mandatory": false,
+        "quote": "Reefer experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "skill",
+        "text": "ELD / hours-of-service",
+        "value": "",
+        "mandatory": false,
+        "quote": "ELD / hours-of-service experience",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "Must be a U.S.-born citizen.",
+        "trait": "National origin / citizenship",
+        "reason": "Requiring U.S. birth discriminates on national origin. Work authorization can be required; place of birth cannot."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Is the 2-year experience minimum firm, or will you take CDL school grads with 1 year?",
+        "why": "Insurance requirements often decide this.",
+        "kind": "set_value",
+        "targetId": "c2",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "Are hazmat endorsements needed on day one for any lanes?",
+        "why": "Currently preferred.",
+        "kind": "toggle_mandatory",
+        "targetId": "c7",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Is there a sign-on bonus?",
+        "why": "Common in regional driver hiring.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      }
+    ]
+  }
+}

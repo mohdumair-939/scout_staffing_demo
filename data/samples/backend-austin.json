@@ -1,0 +1,157 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "backend-austin",
+  "group": "other",
+  "label": "Senior Backend Engineer",
+  "client": "Cobalt Ledger Inc.",
+  "title": "Senior Backend Engineer (Python)",
+  "location": "Austin, TX 78701",
+  "payRange": "$165,000 – $195,000 + equity",
+  "jd": "Cobalt Ledger builds reconciliation software for mid-market finance teams. We're hiring a Senior Backend Engineer for our payments platform team.\n\nRequirements\n- 5+ years of professional backend software engineering experience.\n- Expert Python.\n- Production experience with FastAPI or Django.\n- PostgreSQL schema design and query tuning.\n- Building REST APIs and microservices on AWS.\n- Docker and CI/CD pipelines.\n- Hybrid in Austin (2 days/week in office), within 40 miles.\n\nPreferred\n- Kubernetes.\n- Kafka or other event streaming.\n- Terraform.\n- Open-source contributions.\n- Fintech or payments experience.\n\nWe are looking for digital natives.",
+  "extraction": {
+    "family": "software",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "experience",
+        "text": "5+ years of backend software engineering",
+        "value": "5",
+        "mandatory": true,
+        "quote": "5+ years of professional backend software engineering experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "skill",
+        "text": "Expert Python",
+        "value": "",
+        "mandatory": true,
+        "quote": "Expert Python",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "tools",
+        "text": "FastAPI or Django",
+        "value": "",
+        "mandatory": true,
+        "quote": "Production experience with FastAPI or Django",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "tools",
+        "text": "PostgreSQL",
+        "value": "",
+        "mandatory": true,
+        "quote": "PostgreSQL schema design and query tuning",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "skill",
+        "text": "REST APIs and microservices on AWS",
+        "value": "",
+        "mandatory": true,
+        "quote": "Building REST APIs and microservices on AWS",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "tools",
+        "text": "Docker and CI/CD",
+        "value": "",
+        "mandatory": true,
+        "quote": "Docker and CI/CD pipelines",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "location",
+        "text": "Hybrid in Austin, within 40 miles",
+        "value": "40",
+        "mandatory": true,
+        "quote": "Hybrid in Austin (2 days/week in office), within 40 miles",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "tools",
+        "text": "Kubernetes",
+        "value": "",
+        "mandatory": false,
+        "quote": "Kubernetes",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "tools",
+        "text": "Kafka",
+        "value": "",
+        "mandatory": false,
+        "quote": "Kafka or other event streaming",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "tools",
+        "text": "Terraform",
+        "value": "",
+        "mandatory": false,
+        "quote": "Terraform",
+        "origin": "extracted"
+      },
+      {
+        "id": "c11",
+        "category": "other",
+        "text": "Open-source contributions",
+        "value": "",
+        "mandatory": false,
+        "quote": "Open-source contributions",
+        "origin": "extracted"
+      },
+      {
+        "id": "c12",
+        "category": "other",
+        "text": "Fintech or payments experience",
+        "value": "",
+        "mandatory": false,
+        "quote": "Fintech or payments experience",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "We are looking for digital natives.",
+        "trait": "Age (proxy)",
+        "reason": "\"Digital native\" is a well-known proxy for age and can support an ADEA claim. It was not used for matching."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Is fully remote possible for an exceptional candidate?",
+        "why": "Several strong passive engineers are outside Austin.",
+        "kind": "toggle_mandatory",
+        "targetId": "c7",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "Is Go or Java backend experience acceptable in place of Python?",
+        "why": "Widens the pool.",
+        "kind": "set_value",
+        "targetId": "c2",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Is there an on-call rotation?",
+        "why": "Not stated; matters for senior engineers.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "schedule"
+      }
+    ]
+  }
+}

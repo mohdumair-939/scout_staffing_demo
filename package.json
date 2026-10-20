@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate": "tsx scripts/generate-candidates.ts",
+    "test": "vitest run",
+    "check-data": "tsx scripts/check-data.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.135.0",

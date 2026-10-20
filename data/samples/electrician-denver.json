@@ -1,0 +1,148 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "electrician-denver",
+  "group": "other",
+  "label": "Journeyman Electrician",
+  "client": "Front Range Electric Co.",
+  "title": "Journeyman Electrician – Commercial",
+  "location": "Denver, CO",
+  "payRange": "$36 – $44 / hour",
+  "jd": "Front Range Electric Co. is a union-scale commercial electrical contractor working on offices, schools and data centers along the Front Range.\n\nRequirements\n- Active Colorado Journeyman Electrician license.\n- 4+ years of commercial electrical experience.\n- Conduit bending (EMT, rigid) and commercial wiring.\n- Strong working knowledge of the NEC.\n- OSHA 10 card.\n- Reliable transportation; job sites within 35 miles of Denver.\n\nPreferred\n- OSHA 30.\n- Switchgear and panel installation.\n- PLC / controls experience.\n- Monday–Friday, 6:30am–3pm; occasional Saturdays.\n- Lift 50 lbs and work on ladders and lifts.\n\nApplicants over 50 need not apply.",
+  "extraction": {
+    "family": "electrical",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "license",
+        "text": "Active Colorado Journeyman Electrician license",
+        "value": "JOURNEYMAN_ELECTRICIAN",
+        "mandatory": true,
+        "quote": "Active Colorado Journeyman Electrician license",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "experience",
+        "text": "4+ years of commercial electrical experience",
+        "value": "4",
+        "mandatory": true,
+        "quote": "4+ years of commercial electrical experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "skill",
+        "text": "Conduit bending and commercial wiring",
+        "value": "",
+        "mandatory": true,
+        "quote": "Conduit bending (EMT, rigid) and commercial wiring",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "NEC code knowledge",
+        "value": "",
+        "mandatory": true,
+        "quote": "Strong working knowledge of the NEC",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "license",
+        "text": "OSHA 10 card",
+        "value": "OSHA_10",
+        "mandatory": true,
+        "quote": "OSHA 10 card",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "location",
+        "text": "Job sites within 35 miles of Denver",
+        "value": "35",
+        "mandatory": true,
+        "quote": "job sites within 35 miles of Denver",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "license",
+        "text": "OSHA 30",
+        "value": "OSHA_30",
+        "mandatory": false,
+        "quote": "OSHA 30",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "skill",
+        "text": "Switchgear and panel installation",
+        "value": "",
+        "mandatory": false,
+        "quote": "Switchgear and panel installation",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "skill",
+        "text": "PLC / controls",
+        "value": "",
+        "mandatory": false,
+        "quote": "PLC / controls experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "schedule",
+        "text": "Monday–Friday days, occasional Saturdays",
+        "value": "",
+        "mandatory": false,
+        "quote": "Monday–Friday, 6:30am–3pm; occasional Saturdays",
+        "origin": "extracted"
+      },
+      {
+        "id": "c11",
+        "category": "physical",
+        "text": "Lift 50 lbs, work on ladders and lifts",
+        "value": "50",
+        "mandatory": false,
+        "quote": "Lift 50 lbs and work on ladders and lifts",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "Applicants over 50 need not apply.",
+        "trait": "Age",
+        "reason": "Excluding applicants over 50 violates the ADEA. It was not used for matching."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Is the Colorado license required on day one, or can out-of-state journeymen apply by reciprocity?",
+        "why": "Wyoming and Texas journeymen are in the pool.",
+        "kind": "toggle_mandatory",
+        "targetId": "c1",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "Are prevailing-wage or union job sites involved?",
+        "why": "Affects pay expectations.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "Is a company vehicle provided?",
+        "why": "\"Reliable transportation\" may exclude some candidates.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      }
+    ]
+  }
+}

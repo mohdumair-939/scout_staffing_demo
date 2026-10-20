@@ -1,0 +1,147 @@
+{
+  "employmentType": "Full-time",
+  "sampleId": "attorney-charlotte",
+  "group": "main",
+  "label": "Corporate Attorney",
+  "client": "Carolina Ridge Law LLP",
+  "title": "Corporate Associate Attorney (M&A)",
+  "location": "Charlotte, NC",
+  "payRange": "$185,000 – $225,000",
+  "jd": "Carolina Ridge Law LLP is a growing middle-market corporate firm. Our M&A practice is hiring a mid-level Corporate Associate.\n\nWhat you'll do\n- Run buy-side and sell-side M&A deals from LOI to closing.\n- Draft purchase agreements, disclosure schedules and closing sets.\n- Lead diligence teams and coordinate with specialist practice groups.\n- Advise private companies on governance and financing.\n\nRequirements\n- J.D. from an ABA-accredited law school.\n- Admitted to the North Carolina State Bar and in good standing.\n- 4+ years of corporate transactional experience, ideally M&A.\n- Drafting and negotiating purchase agreements, disclosure schedules and ancillary documents.\n- Leading due diligence workstreams.\n- Based in Charlotte, NC (hybrid, within 40 miles).\n\nPreferred\n- Private equity or venture capital transactions.\n- Securities offerings experience.\n- Large-firm (AmLaw 200) training.\n- LL.M. in Taxation or Securities.\n\nMust be a practicing Christian to fit our firm culture.",
+  "extraction": {
+    "family": "legal",
+    "criteria": [
+      {
+        "id": "c1",
+        "category": "education",
+        "text": "J.D. from an ABA-accredited law school",
+        "value": "jd",
+        "mandatory": true,
+        "quote": "J.D. from an ABA-accredited law school",
+        "origin": "extracted"
+      },
+      {
+        "id": "c2",
+        "category": "license",
+        "text": "Admitted to the North Carolina State Bar, in good standing",
+        "value": "BAR",
+        "mandatory": true,
+        "quote": "Admitted to the North Carolina State Bar and in good standing",
+        "origin": "extracted"
+      },
+      {
+        "id": "c3",
+        "category": "experience",
+        "text": "4+ years of corporate transactional (M&A) experience",
+        "value": "4",
+        "mandatory": true,
+        "quote": "4+ years of corporate transactional experience, ideally M&A",
+        "origin": "extracted"
+      },
+      {
+        "id": "c4",
+        "category": "skill",
+        "text": "Drafting and negotiating purchase agreements",
+        "value": "",
+        "mandatory": true,
+        "quote": "Drafting and negotiating purchase agreements, disclosure schedules and ancillary documents",
+        "origin": "extracted"
+      },
+      {
+        "id": "c5",
+        "category": "skill",
+        "text": "Leading due diligence",
+        "value": "",
+        "mandatory": true,
+        "quote": "Leading due diligence workstreams",
+        "origin": "extracted"
+      },
+      {
+        "id": "c6",
+        "category": "location",
+        "text": "Charlotte, NC (hybrid), within 40 miles",
+        "value": "40",
+        "mandatory": true,
+        "quote": "Based in Charlotte, NC (hybrid, within 40 miles)",
+        "origin": "extracted"
+      },
+      {
+        "id": "c7",
+        "category": "skill",
+        "text": "Private equity or venture capital transactions",
+        "value": "",
+        "mandatory": false,
+        "quote": "Private equity or venture capital transactions",
+        "origin": "extracted"
+      },
+      {
+        "id": "c8",
+        "category": "skill",
+        "text": "Securities offerings",
+        "value": "",
+        "mandatory": false,
+        "quote": "Securities offerings experience",
+        "origin": "extracted"
+      },
+      {
+        "id": "c9",
+        "category": "other",
+        "text": "Large-firm (AmLaw 200) training",
+        "value": "",
+        "mandatory": false,
+        "quote": "Large-firm (AmLaw 200) training",
+        "origin": "extracted"
+      },
+      {
+        "id": "c10",
+        "category": "education",
+        "text": "LL.M. in Taxation or Securities",
+        "value": "master",
+        "mandatory": false,
+        "quote": "LL.M. in Taxation or Securities",
+        "origin": "extracted"
+      }
+    ],
+    "removed": [
+      {
+        "quote": "Must be a practicing Christian to fit our firm culture.",
+        "trait": "Religion",
+        "reason": "A religious requirement is religious discrimination under Title VII. It was not used for matching."
+      }
+    ],
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Will you consider attorneys admitted in another state who can be admitted in NC within 6 months?",
+        "why": "Strong SC- and VA-admitted associates live in the Charlotte area.",
+        "kind": "toggle_mandatory",
+        "targetId": "c2",
+        "category": "other"
+      },
+      {
+        "id": "q2",
+        "question": "Is M&A specifically required, or is general corporate work (financing, governance) acceptable?",
+        "why": "Narrows or widens the experience match.",
+        "kind": "set_value",
+        "targetId": "c3",
+        "category": "other"
+      },
+      {
+        "id": "q3",
+        "question": "What is the annual billable-hour target?",
+        "why": "Candidates moving from large firms often ask first.",
+        "kind": "add_criterion",
+        "targetId": "",
+        "category": "schedule"
+      },
+      {
+        "id": "q4",
+        "question": "How many days per week are in the office?",
+        "why": "\"Hybrid\" isn't defined.",
+        "kind": "info",
+        "targetId": "",
+        "category": "other"
+      }
+    ]
+  }
+}
