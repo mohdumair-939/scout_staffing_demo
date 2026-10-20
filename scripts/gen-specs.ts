@@ -88,7 +88,7 @@ export const SPECS: GenSpec[] = [
     cred: { code: "CPA", name: "Certified Public Accountant (CPA)", issuer: "Texas State Board of Public Accountancy", state: "TX", registry: "cpa_board", registryName: "Mock TX State Board of Public Accountancy", numberPrefix: "", digits: 6, validYears: 1, passiveSource: "cpa_board" },
     extraCreds: [],
     niceCreds: [],
-    mustSkills: ["Month-end close", "Consolidation", "NetSuite"],
+    mustSkills: ["Month-end close", "Consolidation", "NetSuite", "General ledger"],
     niceSkills: ["Public accounting / Big 4", "ASC 606", "Power BI"],
     baseSkills: ["GAAP", "Financial reporting", "Audit", "SOX / internal controls", "Budgeting & forecasting"],
     edu: {

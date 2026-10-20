@@ -64,7 +64,12 @@ function cleanText(line: string): string {
 
 export function extractRules(job: JobInput): Extraction {
   const family = guessFamily(job.title, job.jd);
-  const lines = job.jd.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  // paragraph-style JDs: treat each sentence of a long line as its own unit
+  const lines = job.jd
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .flatMap((l) => (l.length > 120 && !/^[-•*]|^\d+[.)]/.test(l) ? l.split(/(?<=[.!?])\s+(?=[A-Z])/) : [l]));
   const hasHeaders = lines.some((l) => headerOf(l) !== null);
   let section: Section = hasHeaders ? "skip" : "neutral";
   const criteria: Criterion[] = [];
@@ -85,7 +90,7 @@ export function extractRules(job: JobInput): Extraction {
     if (section === "skip") continue;
     const isBullet = /^[-•*]|^\d+[.)]/.test(raw);
     if (!isBullet && section !== "neutral" && quote.length > 160) continue;
-    if (!hasHeaders && !isBullet && !/must|required|preferred|years|licen|degree|certif/i.test(quote)) continue;
+    if (!hasHeaders && !isBullet && !/must|required|preferred|years|licen|degree|certif|a plus|nice to have|experience (with|in)|knowledge of|ability to|proficien|bilingual|within \d+ miles/i.test(quote)) continue;
     const category = classifyLine(quote, family);
     const prefWords = /prefer|nice to have|a plus|\bplus\b|bonus|ideally|desired/i.test(quote);
     let mandatory: boolean;
