@@ -21,9 +21,17 @@ for (const id of ids) {
       problems++;
     }
   }
-  for (const r of s.extraction.removed) if (!s.jd.includes(r.quote)) (console.log(`  ✗ ${id}: removed quote missing`), problems++);
+  for (const r of s.extraction.removed) {
+    if (!s.jd.includes(r.quote)) {
+      console.log(`  ✗ ${id}: removed quote missing`);
+      problems++;
+    }
+  }
   const city = resolveLocation(s.location);
-  if (!city) (console.log(`  ✗ ${id}: location not resolved`), problems++);
+  if (!city) {
+    console.log(`  ✗ ${id}: location not resolved`);
+    problems++;
+  }
   const ctx = { family: s.extraction.family, job: city, today: DEMO_TODAY };
   const scored = rank(scorePool(cands, s.extraction.criteria, ctx, new Set(ALL)));
   const active = scored.filter((x) => x.isActive);
